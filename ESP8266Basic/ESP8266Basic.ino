@@ -279,6 +279,15 @@ connection.onmessage = function (e) {
     connection.send("vars");
     return; 
   }  
+  if (res[0].toLowerCase() == "gupdate")
+  {
+    document.getElementsByName('gra')[0].contentWindow.location.reload();
+    return; 
+  } 
+  
+  
+  
+  
   if (res[0].toLowerCase() == "guicls")
   {
     //alert(e);
@@ -565,6 +574,7 @@ String ButtonsInUse[20];
 
 
 bool NewGuiItemAddedSinceLastWait;
+bool NewGraphicItemAddedSinceLastWait;
 
 String   msgbranch;
 String   MsgBranchRetrnData;
@@ -743,9 +753,9 @@ void setup() {
   });
 
 
-  server->on("/graphics.svg", []()
+  server->on("/graphics.htm", []()
   {
-    server->send(200, "image/svg", BasicGraphics());
+    server->send(200, "text/html", BasicGraphics());
   });
 
 
@@ -1483,9 +1493,10 @@ void runTillWaitPart2()
 {
 
   if (NewGuiItemAddedSinceLastWait) WebSocketSend(  "guicls");NewGuiItemAddedSinceLastWait = 0;
+  if (NewGraphicItemAddedSinceLastWait) WebSocketSend("gupdate");NewGraphicItemAddedSinceLastWait = 0;
   while (RunningProgram == 1 && RunningProgramCurrentLine < TotalNumberOfLines && WaitForTheInterpertersResponse == 0 )
   {
-    Serial.println(inData);
+    //Serial.println(inData);
 
     delay(0);
     RunningProgramCurrentLine++;
