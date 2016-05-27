@@ -164,7 +164,7 @@ PROGMEM const char TextBox[] = R"=====(<input type="text" id="myid" name="variab
 PROGMEM const char passwordbox[] = R"=====( <input type="password" id="myid" name="variablenumber" value="variablevalue" onchange="objChange(this)">)=====";
 PROGMEM const char Slider[] = R"=====( <input type="range" id="myid" name="variablenumber" min="minval" max="maxval" onchange="objChange(this)" value=variablevalue >)=====";
 PROGMEM const char GOTObutton[] =  R"=====(<button id="myid" onclick="cmdClick(this)" name="gotonobranch">gotonotext</button>)=====";
-PROGMEM const char GOTOimagebutton[] =  R"=====(<input type="image" id="myid" src="/file?file=gotonotext" value="gotonotext" name="gotonobranch">)=====";
+PROGMEM const char GOTOimagebutton[] =  R"=====(<input type="image" onclick="cmdClick(this)" id="myid" src="/file?file=gotonotext" value="gotonotext" name="gotonobranch">)=====";
 PROGMEM const char normalImage[] =  R"=====(<img src="/file?file=name">)=====";
 PROGMEM const char javascript[] =  R"=====(<script src="/file?file=name"></script>)=====";
 PROGMEM const char CSSscript[] =  R"=====(<link rel="stylesheet" type="text/css" href="/file?file=name">)=====";
@@ -741,6 +741,16 @@ void setup() {
     clear_stacks();
     server->send(200, "text/html", WebOut);
   });
+
+
+  server->on("/graphics.svg", []()
+  {
+    server->send(200, "image/svg", BasicGraphics());
+  });
+
+
+
+
 
   server->on("/debug", []()
   {

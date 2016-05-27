@@ -869,11 +869,11 @@ void ExicuteTheCurrentLine()
     numberButtonInUse++;
     String tempButton = GenerateIDtag(GOTOimagebutton);
     if (GetMeThatVar(Param1).startsWith(F("http://")) | GetMeThatVar(Param1).startsWith(F("HTTP://")) )tempButton.replace(F("/file?file="), "");
-    tempButton.replace(F("gotonotext"),  GetMeThatVar(Param1));
+    tempButton.replace(F("gotonotext"),  evaluate(Param1));
 
     tempButton.replace(F("gotonobranch"),  String(JumpList.getPos(Param2)));
 
-    tempButton;
+    HTMLout = String(HTMLout + tempButton);
     return;
   }
 
@@ -949,11 +949,11 @@ void ExicuteTheCurrentLine()
     GraphicsEliments[0][0] += 1;
     i = GraphicsEliments[0][0];
     GraphicsEliments[i][0] = 1;
-    GraphicsEliments[i][1] = GetMeThatVar(Param1).toInt();
-    GraphicsEliments[i][2] = GetMeThatVar(Param2).toInt();
-    GraphicsEliments[i][3] = GetMeThatVar(Param3).toInt();
-    GraphicsEliments[i][4] = GetMeThatVar(Param4).toInt();
-    GraphicsEliments[i][5] = GetMeThatVar(Param5).toInt();
+    GraphicsEliments[i][1] = evaluate(Param1).toInt();
+    GraphicsEliments[i][2] = evaluate(Param2).toInt();
+    GraphicsEliments[i][3] = evaluate(Param3).toInt();
+    GraphicsEliments[i][4] = evaluate(Param4).toInt();
+    GraphicsEliments[i][5] = evaluate(Param5).toInt();
     return;
   }
 
@@ -964,10 +964,10 @@ void ExicuteTheCurrentLine()
     GraphicsEliments[0][0] += 1;
     i = GraphicsEliments[0][0];
     GraphicsEliments[i][0] = 2;
-    GraphicsEliments[i][1] = GetMeThatVar(Param1).toInt();
-    GraphicsEliments[i][2] = GetMeThatVar(Param2).toInt();
-    GraphicsEliments[i][3] = GetMeThatVar(Param3).toInt();
-    GraphicsEliments[i][5] = GetMeThatVar(Param4).toInt();
+    GraphicsEliments[i][1] = evaluate(Param1).toInt();
+    GraphicsEliments[i][2] = evaluate(Param2).toInt();
+    GraphicsEliments[i][3] = evaluate(Param3).toInt();
+    GraphicsEliments[i][5] = evaluate(Param4).toInt();
     return;
   }
 
@@ -978,11 +978,11 @@ void ExicuteTheCurrentLine()
     GraphicsEliments[0][0] += 1;
     i = GraphicsEliments[0][0];
     GraphicsEliments[i][0] = 3;
-    GraphicsEliments[i][1] = GetMeThatVar(Param1).toInt();
-    GraphicsEliments[i][2] = GetMeThatVar(Param2).toInt();
-    GraphicsEliments[i][3] = GetMeThatVar(Param3).toInt();
-    GraphicsEliments[i][4] = GetMeThatVar(Param4).toInt();
-    GraphicsEliments[i][5] = GetMeThatVar(Param5).toInt();
+    GraphicsEliments[i][1] = evaluate(Param1).toInt();
+    GraphicsEliments[i][2] = evaluate(Param2).toInt();
+    GraphicsEliments[i][3] = evaluate(Param3).toInt();
+    GraphicsEliments[i][4] = evaluate(Param4).toInt();
+    GraphicsEliments[i][5] = evaluate(Param5).toInt();
     return;
   }
 
@@ -993,11 +993,11 @@ void ExicuteTheCurrentLine()
     GraphicsEliments[0][0] += 1;
     i = GraphicsEliments[0][0];
     GraphicsEliments[i][0] = 4;
-    GraphicsEliments[i][1] = GetMeThatVar(Param1).toInt();
-    GraphicsEliments[i][2] = GetMeThatVar(Param2).toInt();
-    GraphicsEliments[i][3] = GetMeThatVar(Param3).toInt();
-    GraphicsEliments[i][4] = GetMeThatVar(Param4).toInt();
-    GraphicsEliments[i][5] = GetMeThatVar(Param5).toInt();
+    GraphicsEliments[i][1] = evaluate(Param1).toInt();
+    GraphicsEliments[i][2] = evaluate(Param2).toInt();
+    GraphicsEliments[i][3] = evaluate(Param3).toInt();
+    GraphicsEliments[i][4] = evaluate(Param4).toInt();
+    GraphicsEliments[i][5] = evaluate(Param5).toInt();
     return;
   }
 
